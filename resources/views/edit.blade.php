@@ -22,7 +22,7 @@
 <h1>Edit a user</h1>
 
 
-<form action=""  method="post">
+<form action="{{ ('update') }}"  method="POST">
 
     <div class="form-group">
       <label for="name">Name: <p>{{ $user->name }}</p></label>
@@ -44,7 +44,8 @@
 
     </div>
 
-    <input type="submit" name="submit" value="edit">
+    <input class="btn btn-small btn-info" type="submit" name="submit" value="edit">
+     
 
 </form>
 

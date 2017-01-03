@@ -57,34 +57,43 @@ $movies = DB::table('cm_movies')->get();
     {
       $user = DB::table('users')->where('id', $id)->first();
 
-        // show the view and pass the nerd to it
+        // show the view and pass the user to it
         return view('show', ['user' => $user]);
     }
 
        public function edit($id)
      
     {
-        // get the nerd
+        // get the user
          $user = DB::table('users')->where('id', $id)->first();
 
-        // show the edit form and pass the nerd
-        return View('edit', ['user' => $user]);
+        // show the edit form and pass the user
+        return View('edit', ['user' => $user] );
            
     }
 
-      public function update()
+       public function update($id)
     {
+        // validate
+        // read more on validation at http://laravel.com/docs/validation
+      
+            $user = DB::table('users')->where('id', $id)->first();
+            $name       = Input::get('name');
+            $email      = Input::get('email');
+            $pass       = Input::get('pass');
+            // $user->save();
+            DB::table('users')
+            ->where('id', $id)
+            ->update(['name' =>  $name,'email' => $email, 'password' => $pass]);
 
-        $id = Input::get('id');
-        $name= Input::get('name');
-        $email= Input::get('email');
-        $pass= Input::get('pass');
-// $upd = DB::table('users')
-//             ->where('id', $id)
-//             ->update(['name' => $name,'email' => $email,'password' => $pass]);
-            $affected = DB::update('update users set name = $name, email = $email, password = $pass where id = $id');
-	 
+            // redirect
+            
+            $users = DB::table('users')->get();
+            $movies = DB::table('cm_movies')->get();
 
+         return view('index', ['users' => $users,'movies' => $movies]);
 
-    }
+        }
+    
+
 }
