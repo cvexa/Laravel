@@ -54,6 +54,7 @@
 
                 <!-- edit this user (uses the edit method found at GET /users/{id}/edit -->
                 <a class="btn btn-small btn-info" href="{{ URL::to('users/' . $value->id . '/edit') }}">Edit this user</a>
+                 <a class="btn btn-small btn-warning" href="{{ URL::to('users/' . $value->id . '/delete_user') }}">Delete this user</a>
 
             </td>
         </tr>

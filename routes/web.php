@@ -17,4 +17,6 @@ Route::get('/', function () {
 
  Route::resource('users', 'UserController2');
  Route::match(['put', 'patch','post'], 'users/{id}/update','UserController2@update');
+ Route::match(['get'], 'users/{id}/delete_user','UserController2@delete_user');
+ Route::match(['get'], 'users/{id}/delete','UserController2@delete');
 
