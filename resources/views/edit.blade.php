@@ -22,7 +22,8 @@
 <h1>Edit a user</h1>
 
 
-<form action="{{ ('update') }}"  method="POST">
+<form action='{{ url("users/$user->id") }}'  method="POST">
+{{ method_field('PUT') }}
 
     <div class="form-group">
       <label for="name">Name: <p>{{ $user->name }}</p></label>

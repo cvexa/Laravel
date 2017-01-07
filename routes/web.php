@@ -16,7 +16,12 @@ Route::get('/', function () {
 });
 
  Route::resource('users', 'UserController2');
- Route::match(['put', 'patch','post'], 'users/{id}/update','UserController2@update');
+ Route::match(['put'], 'users/{user}','UserController2@update');
  Route::match(['get'], 'users/{id}/delete_user','UserController2@delete_user');
  Route::match(['get'], 'users/{id}/delete','UserController2@delete');
 
+ Route::get('/home', function () {
+    return view('cinema.index');
+});
+
+Route::resource('movies', 'baner');

@@ -21,7 +21,7 @@
 
 <h1>Delete a user <p>{{ $user->name }}</p></h1>
 
-<a class="btn btn-small btn-success" href="{{ URL::to('users/' . $user->id. '/delete') }}">yess</a>
+<a class="btn btn-small btn-success" href="{{ URL::to('users/' . $user->id. '/delete')}}">yess</a>
 <a class="btn btn-small btn-warning" href="{{ URL::to('users/') }}">no</a>
 
 
