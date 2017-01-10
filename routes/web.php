@@ -20,8 +20,22 @@ Route::get('/', function () {
  Route::match(['get'], 'users/{id}/delete_user','UserController2@delete_user');
  Route::match(['get'], 'users/{id}/delete','UserController2@delete');
 
- Route::get('/home', function () {
-    return view('cinema.index');
-});
+//  Route::get('/home', function () {
+//     return view('cinema.index');
+// });
 
-Route::resource('movies', 'baner');
+// Route::resource('movies', 'baner');
+
+
+
+
+Auth::routes();
+
+Route::get('/logged', 'baner@index_logged');
+
+
+Route::get('/logout', 'baner@logout');
+
+Route::get('/home', 'baner@index');
+
+

@@ -37,6 +37,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- banner-bottom-plugin -->
 <link href="{{ URL::asset('css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all">
 <script src="js/owl.carousel.js"></script>
+  
+    <script type="text/javascript" src="js/html5gallery.js"></script>
 <script>
 	$(document).ready(function() { 
 		$("#owl-demo").owlCarousel({
@@ -81,8 +83,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="w3l_sign_in_register">
 				<ul>
-					<li><i class="fa fa-phone" aria-hidden="true"></i> (+000) 123 345 653</li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
+					
+@if(!empty($admin))
+@foreach($admin as $admin)
+
+<li>Wellcome {{ $admin->name }} <b>ADMIN</b></li>
+                                       <li> <a href="{{ url('/logout') }}">
+                                            Logout
+                                        </a>
+
+                                      <!--   <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form> --></li>
+@endforeach
+@elseif(!empty($user2)) 
+@foreach($user2 as $user)
+<li>Wellcome {{ $user->name }}</li>
+                                       <li> <a href="{{ url('/logout') }}">
+                                            Logout
+                                        </a> 
+@endforeach
+@else                                        
+					<li><a href="/login" data-toggle="modal" data-target="/login">Login</a></li>
+@endif					
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -160,7 +183,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html">Home</a></li>
+							<li class="active"><a href="/movies">Home</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">

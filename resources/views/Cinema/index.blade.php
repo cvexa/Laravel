@@ -3,13 +3,13 @@
 @section('title', 'Wellcome ')
 @section('content') 
    
-
+@if(!empty($movie))
 @foreach ($movie as $movies)
-    
+ 
 
 
 <!-- banner -->
-	<div id="slidey" style="display:none;">
+	<!-- <div id="slidey" style="display:none;">
 		<ul>
 			<li><img src="images/5.jpg" alt=" "><p class='title'>{{ $movies->title }}</p><p class='description'> {{ $movies->description }} <button class="btn-warning" href="#"><b>Buy Ticket</b></button></p></li>
 			<li><img src="images/2.jpg" alt=" "><p class='title'>Maximum Ride</p><p class='description'>Six children, genetically cross-bred with avian DNA, take flight around the country to discover their origins. Along the way, their mysterious past is ...</p></li>
@@ -29,35 +29,30 @@
 				showList: true
 			});
 			$(".slidey-list-description").dotdotdot();
-		</script>
+		</script> -->
 <!-- //banner -->
 <!-- banner-bottom -->
 	<div class="banner-bottom">
 		<div class="container">
-		<center><h2>Филмите тази седмица</h2></center></center>
+		<p><center><h2>Скоро В Киното</h2></center></p>
 			<div class="w3_agile_banner_bottom_grid">
 
 				<div id="owl-demo" class="owl-carousel owl-theme">
 					<div class="item">
 						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m13.jpg" title="album-name" class="img-responsive" alt=" " />
+							<a class="w3_play_icon" href="#small-dialog"><img src="images/5.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 
 								<div class="w3l-movie-text">
-									<h6><a href="single.html">Citizen Soldier</a></h6>							
+									<h6><a href="#small-dialog"><b>{{ $movies->title }}</b></a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
+								<div class="mid-2 agile_mid_2_Monday">
+									<p><center>ОТ : {{ $movies->start_date }}</center></p>
+									<p><center>ДО : {{ $movies->end_date }}</center></p>
 									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-										</ul>
+									 
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -72,20 +67,14 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">X-Men</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
 									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
+										
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -100,20 +89,14 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m12.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Greater</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
 									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
+										
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -128,20 +111,14 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Light B/t Oceans</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
 									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
+										
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -156,20 +133,14 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m8.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">The BFG</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
 									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
+										
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -184,20 +155,14 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Central Intelligence</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
 									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-										</ul>
+										
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -212,20 +177,14 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m10.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Don't Think Twice</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
 									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
+									
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -240,20 +199,14 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Peter</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
 									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
+										
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -268,20 +221,14 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m15.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">God’s Compass</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
 									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
+										
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -297,36 +244,35 @@
 	</div>
 	<!-- general -->
 	<div class="general">
-		<h4 class="latest-text w3_latest_text">Featured Movies</h4>
+		<h4 class="latest-text w3_latest_text">Програма </h4>
 		<div class="container">
 			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 				<ul id="myTab" class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Featured</a></li>
-					<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Top viewed</a></li>
-					<li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true">Top Rating</a></li>
-					<li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false">Recently Added</a></li>
+					<li role="presentation" class="active"><a href="#Monday" id="Monday-tab" role="tab" data-toggle="tab" aria-controls="Monday" aria-expanded="true">Понеделник</a></li>
+					<li role="presentation"><a href="#Thuesday" role="tab" id="Thuesday-tab" data-toggle="tab" aria-controls="Thuesday" aria-expanded="false">Вторник</a></li>
+					<li role="presentation"><a href="#Wednesday" role="tab" id="Thuesday-tab" data-toggle="tab" aria-controls="Thuesday" aria-expanded="false">Сряда</a></li>
+					<li role="presentation"><a href="#Thursday" id="Wednesday-tab" role="tab" data-toggle="tab" aria-controls="Wednesday" aria-expanded="true">Четвъртък</a></li>
+					<li role="presentation"><a href="#Friday" role="tab" id="Thursday-tab" data-toggle="tab" aria-controls="Thursday" aria-expanded="false">Петък</a></li>
+					<li role="presentation"><a href="#Saturday" role="tab" id="Thursday-tab" data-toggle="tab" aria-controls="Thursday" aria-expanded="false">Събота</a></li>
+					<li role="presentation"><a href="#Sunday" role="tab" id="Thursday-tab" data-toggle="tab" aria-controls="Thursday" aria-expanded="false">Неделя</a></li>
 				</ul>
 				<div id="myTabContent" class="tab-content">
-					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+					<div role="tabpanel" class="tab-pane fade active in" id="Monday" aria-labelledby="Monday-tab">
 						<div class="w3_agile_featured_movies">
 							<div class="col-md-2 w3l-movie-gride-agile">
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m15.jpg" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
-										<h6><a href="single.html">God’s Compass</a></h6>							
+										<h6><a href="single.html">{{ $movies->title }}</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
+									<div class="mid-2 agile_mid_2_Monday">
+									<p>2016</p>
+										<!-- <p>{{ 'Жанр: '.$movies->cl_genre_id1 .' ,'.$movies->cl_genre_id2 . ' ,' . $movies->cl_genre_id3 }}</p>
+										<p>{{ 'Сценарист: '.$movies->director }}</p> -->
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											</ul>
+										
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -339,20 +285,14 @@
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m2.jpg" title="album-name" class="img-responsive" alt=" "  />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
 										<h6><a href="single.html">Bad Moms</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
+									<div class="mid-2 agile_mid_2_Monday">
 										<p>2016</p>
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
+											
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -365,20 +305,14 @@
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m5.jpg" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
 										<h6><a href="single.html">Jason Bourne</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
+									<div class="mid-2 agile_mid_2_Monday">
 										<p>2016</p>
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
+											
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -391,20 +325,14 @@
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m16.jpg" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
 										<h6><a href="single.html">Rezort</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
+									<div class="mid-2 agile_mid_2_Monday">
 										<p>2016</p>
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
+											
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -417,20 +345,14 @@
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
 										<h6><a href="single.html">Peter</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
+									<div class="mid-2 agile_mid_2_Monday">
 										<p>2016</p>
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
+											
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -443,20 +365,14 @@
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m18.jpg" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
 										<h6><a href="single.html">ISRA 88</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
+									<div class="mid-2 agile_mid_2_Monday">
 										<p>2016</p>
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
+											
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -469,20 +385,14 @@
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m1.jpg" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
 										<h6><a href="single.html">War Dogs</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
+									<div class="mid-2 agile_mid_2_Monday">
 										<p>2016</p>
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
+											
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -495,20 +405,14 @@
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m14.jpg" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
 										<h6><a href="single.html">The Other Side</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
+									<div class="mid-2 agile_mid_2_Monday">
 										<p>2016</p>
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
+											
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -521,20 +425,14 @@
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m19.jpg" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
 										<h6><a href="single.html">Civil War</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
+									<div class="mid-2 agile_mid_2_Monday">
 										<p>2016</p>
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
+											
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -547,20 +445,14 @@
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m20.jpg" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
 										<h6><a href="single.html">The Secret Life of Pets</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
+									<div class="mid-2 agile_mid_2_Monday">
 										<p>2016</p>
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
+											
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -573,20 +465,14 @@
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m21.jpg" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
 										<h6><a href="single.html">The Jungle Book</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
+									<div class="mid-2 agile_mid_2_Monday">
 										<p>2016</p>
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
+											
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -599,20 +485,14 @@
 								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m22.jpg" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 									<div class="w3l-movie-text">
 										<h6><a href="single.html">Assassin's Creed 3</a></h6>							
 									</div>
-									<div class="mid-2 agile_mid_2_home">
+									<div class="mid-2 agile_mid_2_Monday">
 										<p>2016</p>
 										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											</ul>
+											
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -624,26 +504,18 @@
 							<div class="clearfix"> </div>
 						</div>
 					</div>
-					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+					<div role="tabpanel" class="tab-pane fade" id="Thuesday" aria-labelledby="Thuesday-tab">
 						<div class="col-md-2 w3l-movie-gride-agile">
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m22.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Assassin's Creed 3</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -655,21 +527,13 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Bad Moms</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -681,21 +545,13 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Central Intelligence</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -705,26 +561,18 @@
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<div role="tabpanel" class="tab-pane fade" id="rating" aria-labelledby="rating-tab">
+					<div role="tabpanel" class="tab-pane fade" id="Wednesday" aria-labelledby="Wednesday-tab">
 						<div class="col-md-2 w3l-movie-gride-agile">
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Light B/t Oceans</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -736,21 +584,13 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">X-Men</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -762,21 +602,13 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m8.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">The BFG</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -788,21 +620,13 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Peter</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -812,26 +636,18 @@
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<div role="tabpanel" class="tab-pane fade" id="imdb" aria-labelledby="imdb-tab">
+					<div role="tabpanel" class="tab-pane fade" id="Thursday" aria-labelledby="Thursday-tab">
 						<div class="col-md-2 w3l-movie-gride-agile">
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m22.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Assassin's Creed 3</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -843,21 +659,13 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Bad Moms</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -869,21 +677,13 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Central Intelligence</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -895,21 +695,13 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m10.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Don't Think Twice</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -921,20 +713,14 @@
 							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m23.jpg" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 								<div class="w3l-movie-text">
 									<h6><a href="single.html">Dead Island 2</a></h6>							
 								</div>
-								<div class="mid-2 agile_mid_2_home">
+								<div class="mid-2 agile_mid_2_Monday">
 									<p>2016</p>
 									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
+										
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -952,7 +738,7 @@
 <!-- //general -->
 <!-- Latest-tv-series -->
 	<div class="Latest-tv-series">
-		<h4 class="latest-text w3_latest_text w3_home_popular">Most Popular Movies</h4>
+		<h4 class="latest-text w3_latest_text w3_Monday_popular">Most Popular Movies</h4>
 		<div class="container">
 			<section class="slider">
 				<div class="flexslider">
@@ -977,7 +763,7 @@
 										<a href="genres.html">Adventure</a> | 
 										<a href="genres.html">Family</a>								
 									</p>
-									<p class="fexi_header_para fexi_header_para1"><span>Star Rating<label>:</label></span>
+									<p class="fexi_header_para fexi_header_para1"><span>Star Wednesday<label>:</label></span>
 										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
 										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
 										<a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a>
@@ -991,14 +777,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m22.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Assassin's Creed 3</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
@@ -1017,14 +803,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Bad Moms</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1043,14 +829,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Central Intelligence</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1069,14 +855,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Light B/t Oceans</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1095,14 +881,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">X-Men</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
@@ -1121,14 +907,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Peter</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1166,7 +952,7 @@
 										<a href="genres.html">Thriller</a> |  
 										<a href="genres.html">Horror</a>								
 									</p>
-									<p class="fexi_header_para fexi_header_para1"><span>Star Rating<label>:</label></span>
+									<p class="fexi_header_para fexi_header_para1"><span>Star Wednesday<label>:</label></span>
 										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
 										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
 										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
@@ -1180,14 +966,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Bad Moms</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1206,14 +992,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Central Intelligence</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1232,14 +1018,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Light B/t Oceans</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1258,14 +1044,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">X-Men</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
@@ -1284,14 +1070,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Peter</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1310,14 +1096,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m21.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">The Jungle Book</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1355,7 +1141,7 @@
 										<a href="genres.html">Action</a> | 
 										<a href="genres.html">Adventure</a>								
 									</p>
-									<p class="fexi_header_para fexi_header_para1"><span>Star Rating<label>:</label></span>
+									<p class="fexi_header_para fexi_header_para1"><span>Star Wednesday<label>:</label></span>
 										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
 										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
 										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
@@ -1369,14 +1155,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Bad Moms</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1395,14 +1181,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Central Intelligence</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1421,14 +1207,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Light B/t Oceans</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1447,14 +1233,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">X-Men</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
@@ -1473,14 +1259,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">Peter</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -1499,14 +1285,14 @@
 										<a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m20.jpg" title="album-name" class="img-responsive" alt=" " />
 											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 										</a>
-										<div class="mid-1 agileits_w3layouts_mid_1_home">
+										<div class="mid-1 agileits_w3layouts_mid_1_Monday">
 											<div class="w3l-movie-text">
 												<h6><a href="single.html">The Secret Life of Pets</a></h6>							
 											</div>
-											<div class="mid-2 agile_mid_2_home">
+											<div class="mid-2 agile_mid_2_Monday">
 												<p>2016</p>
 												<div class="block-stars">
-													<ul class="w3l-ratings">
+													<ul class="w3l-Wednesdays">
 														<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
 														<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
@@ -1548,7 +1334,7 @@
 		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
 	<!--//pop-up-box -->
 	<div id="small-dialog" class="mfp-hide">
-		<iframe src="https://player.vimeo.com/video/164819130?title=0&byline=0"></iframe>
+		<iframe src="{{ $movies->trailer }}"></iframe>
 	</div>
 	<div id="small-dialog1" class="mfp-hide">
 		<iframe src="https://player.vimeo.com/video/148284736"></iframe>
@@ -1576,4 +1362,5 @@
 
 
 @endforeach
+@endif
 @endsection
