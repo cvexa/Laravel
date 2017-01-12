@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="header">
 		<div class="container">
 			<div class="w3layouts_logo">
-				<a href="index.html"><h1>One<span>Movies</span></h1></a>
+				<a href="/home"><h1>One<span>Movies</span></h1></a>
 			</div>
 			<div class="w3_search">
 				<form action="#" method="post">
@@ -105,6 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 @endforeach
 @else                                        
 					<li><a href="/login" data-toggle="modal" data-target="/login">Login</a></li>
+					<li><a href="/register" data-toggle="modal" data-target="/register">Register</a></li>
 @endif					
 				</ul>
 			</div>
