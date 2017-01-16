@@ -39,3 +39,9 @@ Route::get('/logout', 'baner@logout');
 Route::get('/home', 'baner@index');
 
 
+
+Route::get('/single', function () {
+    return view('cinema.single');
+});
+
+

@@ -42,6 +42,6 @@ class LoginController extends Controller
     public function logout(Request $request)
 {
     $this->performLogout($request);
-    return redirect()->route('cinema.movies');
+    return redirect()->route('cinema.home');
 }
 }

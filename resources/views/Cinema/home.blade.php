@@ -114,7 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!-- //header -->
 <!-- bootstrap-pop-up -->
-	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+	<!-- <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -166,7 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			opacity: "toggle"
 		  }, "slow");
 		});
-	</script>
+	</script> -->
 <!-- //bootstrap-pop-up -->
 <!-- nav -->
 	<div class="movies_nav">
@@ -180,6 +180,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="icon-bar"></span>
 					</button>
 				</div>
+			
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
@@ -190,39 +191,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
 									<div class="col-sm-4">
+									
+
 										<ul class="multi-column-dropdown">
-											<li><a href="genres.html">Action</a></li>
-											<li><a href="genres.html">Biography</a></li>
-											<li><a href="genres.html">Crime</a></li>
-											<li><a href="genres.html">Family</a></li>
-											<li><a href="horror.html">Horror</a></li>
-											<li><a href="genres.html">Romance</a></li>
-											<li><a href="genres.html">Sports</a></li>
-											<li><a href="genres.html">War</a></li>
+										@if(!empty($genre))
+											@foreach($genre as $genre)
+                                         <li><a href="">{{ $genre -> genres }}</a></li>
+                                               
+											@endforeach
+										@else
+										
+										<li><a href="">Action</a></li>
+										@endif	
+										</ul>
+								
+									</div>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+											
 										</ul>
 									</div>
 									<div class="col-sm-4">
 										<ul class="multi-column-dropdown">
-											<li><a href="genres.html">Adventure</a></li>
-											<li><a href="comedy.html">Comedy</a></li>
-											<li><a href="genres.html">Documentary</a></li>
-											<li><a href="genres.html">Fantasy</a></li>
-											<li><a href="genres.html">Thriller</a></li>
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genres.html">Animation</a></li>
-											<li><a href="genres.html">Costume</a></li>
-											<li><a href="genres.html">Drama</a></li>
-											<li><a href="genres.html">History</a></li>
-											<li><a href="genres.html">Musical</a></li>
-											<li><a href="genres.html">Psychological</a></li>
+											
 										</ul>
 									</div>
 									<div class="clearfix"></div>
 									</li>
 								</ul>
+								
 							</li>
 							<li><a href="series.html">tv - series</a></li>
 							<li><a href="news.html">news</a></li>
@@ -266,6 +263,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</nav>	
 		</div>
 	</div>
+	
 <!-- //nav -->
 <div class="general_social_icons">
 	<nav class="social">
