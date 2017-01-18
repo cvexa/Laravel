@@ -36,7 +36,7 @@ Route::get('/logged', 'baner@index_logged');
 
 Route::get('/logout', 'baner@logout');
 
-Route::get('/home', 'baner@index');
+Route::get('/home/{user?}', 'baner@index');
 
 
 

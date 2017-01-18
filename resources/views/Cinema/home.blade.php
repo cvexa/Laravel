@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="header">
 		<div class="container">
 			<div class="w3layouts_logo">
-				<a href="/home"><h1>One<span>Movies</span></h1></a>
+				<a href="{{url('/home')}}"><h1>One<span>Movies</span></h1></a>
 			</div>
 			<div class="w3_search">
 				<form action="#" method="post">
@@ -84,25 +84,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3l_sign_in_register">
 				<ul>
 					
-@if(!empty($admin))
-@foreach($admin as $admin)
-
-<li>Wellcome {{ $admin->name }} <b>ADMIN</b></li>
+@if(!empty($user) && !empty($user->id))
+<li>
+	Wellcome {{ $user->name }} 		
+	@if($is_admin)
+		<b>ADMIN</b>
+	@endif
+</li>
                                        <li> <a href="{{ url('/logout') }}">
                                             Logout
                                         </a>
 
                                       <!--   <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
-                                        </form> --></li>
-@endforeach
-@elseif(!empty($user2)) 
-@foreach($user2 as $user)
-<li>Wellcome {{ $user->name }}</li>
-                                       <li> <a href="{{ url('/logout') }}">
-                                            Logout
-                                        </a> 
-@endforeach
+                                        </form> -->
+
+                                    </li>
 @else                                        
 					<li><a href="/login" data-toggle="modal" data-target="/login">Login</a></li>
 					<li><a href="/register" data-toggle="modal" data-target="/register">Register</a></li>
