@@ -101,8 +101,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     </li>
 @else                                        
-					<li><a href="/login" data-toggle="modal" data-target="/login">Login</a></li>
-					<li><a href="/register" data-toggle="modal" data-target="/register">Register</a></li>
+					<li><a href="{{ url('/login') }}" data-toggle="modal" data-target="/login">Login</a></li>
+					<li><a href="{{ url('/register') }}" data-toggle="modal" data-target="/register">Register</a></li>
 @endif					
 				</ul>
 			</div>

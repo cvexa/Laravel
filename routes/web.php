@@ -44,4 +44,6 @@ Route::get('/single', function () {
     return view('cinema.single');
 });
 
+Route::resource('movies', 'MoviesController');
+
 
