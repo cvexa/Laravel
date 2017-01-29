@@ -51,7 +51,7 @@
      <div class="form-group">
   <label for="genres">Genres (max:3):</label>
   @foreach($genres as $genre)
-    <label class="checkbox-inline"><input id="select_genre" type="checkbox" value="{{ $genre->genres }}">{{ $genre->genres }}</label>
+    <label class="checkbox-inline"><input id="select_genre" name="cl_genres[]" type="checkbox" value="{{ $genre->genres }}">{{ $genre->genres }}</label>
   @endforeach  
  
     </div>

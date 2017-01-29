@@ -9,6 +9,11 @@ use App\cl_genre;
 
 class MoviesController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 	public function index()
 	{
 
@@ -38,10 +43,18 @@ class MoviesController extends Controller
         'trailer' => 'required',
         'rating' => 'required',
          ]);
-		cm_movie::create($request->all());
+		$cm_movie = cm_movie::create($request->all());
+
+		$ind = 1;
+		foreach ($request->cl_genres as $key => $value) {
+			$genre_key = 'cl_genre_id' . $ind;
+			$cm_movie->$genre_key = $value;
+			$ind++;
+		}
+		$cm_movie->save();
+
 
 		return redirect('/movies');
-
 	}
 
 	public function show($id)
