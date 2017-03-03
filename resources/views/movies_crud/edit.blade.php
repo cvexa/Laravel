@@ -1,4 +1,5 @@
-@extends('movies_crud.movies')
+@extends('cinema.home')
+@section('title','Edit')
 
 
 @section('content')
@@ -10,7 +11,7 @@
 
             <div class="pull-left">
 
-                <h2>Edit  Movie {{ $movie->title }}</h2>
+                <h2>Промени Филм -  {{ $movie->title }}</h2>
 
             </div>
 
@@ -27,37 +28,52 @@
 
 
 
-   <form action="{{ url('/movies/'.$movie->id) }}" method="post" id="edit">
+   <form action="{{ url('/movies/'.$movie->id) }}" method="post" id="edit" enctype="multipart/form-data" files="true">
    {{ method_field('PUT') }}
 
 
     <div class="form-group">
-      <label for="Title">Title <!-- <p>{{ $movie->title }}</p> --></label>
+      <label for="Title">Заглавие <!-- <p>{{ $movie->title }}</p> --></label>
         <p>
         <input id="title" type="text" class="form-control" name="title" value="{{ $movie->title }}" placeholder="new Title...">
         </p>
     </div>
 
+  <div class="form-group">
+      <label for="Poster">Постер </label>
+      <p><img src="{{ url('/posters/'.$movie->poster) }}" width="200px" height="200px" alt="edit image" /></p>
+        <p>
+        <input type="hidden" name="old_poster" value="{{ url('/posters/'.$movie->poster) }}">
+        <input id="poster" type="file" name="poster">
+        </p>
+    </div>
+
+
      <div class="form-group">
-     <label for="description">Description <!-- {{ $movie->description }} -->
-     <p>{{ $movie->description }}</p></label>
-       <textarea form="edit" class="form-control" rows="5" id="description" name="description" placeholder="edit the description..." style="resize: none;"></textarea>
+     <label for="description">Описание <!-- {{ $movie->description }} -->
+     </label>
+       <textarea form="edit" class="form-control" rows="5" id="description" name="description" placeholder="edit the description..." style="resize: none;">{{ $movie->description }}</textarea>
     </div>
     <div class="form-group">
-  <label for="genres">Genres (max:3):</label>
+  <label for="genres">Жанрове (max:3):</label>
   @foreach($genres as $genre)
-    <label class="checkbox-inline"><input id="select_genre" type="checkbox" value="{{ $genre->genres }}">{{ $genre->genres }}</label>
+    <label class="checkbox-inline">
+    @if($movie->cl_genre_id1 == $genre->genres || $movie->cl_genre_id2 == $genre->genres || $movie->cl_genre_id3 == $genre->genres)
+    <input id="select_genre" name="cl_genres[]" type="checkbox" value="{{ $genre->genres }}" checked="checked" >{{ $genre->genres }}</label>
+    @else
+    <input id="select_genre" name="cl_genres[]" type="checkbox" value="{{ $genre->genres }}">{{ $genre->genres }}</label>
+    @endif
   @endforeach  
  
     </div>
     <div class="form-group">
-       <label for="country">Country <!-- <p>{{ $movie->country }} --></label>
+       <label for="country">Държава <!-- <p>{{ $movie->country }} --></label>
        <p>
        <input id="country" type="text" class="form-control" name="country" value="{{ $movie->country }}" placeholder="Country">
        </p>
     </div>
     <div class="form-group">
-       <label for="translation">Translation</label>
+       <label for="translation">Формат</label>
        <p>
       @if($movie->translation == 'bg_audio')
       <label class="radio-inline"><input type="radio" name="translation" value="bg_audio" checked="checked">BG AUDIO</label>
@@ -68,8 +84,20 @@
       @endif
       </p>
     </div>
+     <div class="form-group">
+       <label for="video_format">Видео Формат</label>
+       <p>
+      @if($movie->video_format == '3D')
+      <label class="radio-inline"><input type="radio" name="video_format" value="3D" checked="checked">3D</label>
+      <label class="radio-inline"><input type="radio" name="video_format" value="2D">2D</label>
+      @else
+       <label class="radio-inline"><input type="radio" name="video_format" value="3D">3D</label>
+      <label class="radio-inline"><input type="radio" name="video_format" value="2D" checked="checked">2D</label>
+      @endif
+      </p>
+    </div>
     <div class="form-group">
-       <label for="Director">Director <!-- <p>{{ $movie->director }} --></p></label>
+       <label for="Director">Продуцент <!-- <p>{{ $movie->director }} --></p></label>
        <p>
        <input id="director" type="text" class="form-control" name="director" value="{{ $movie->director }}" placeholder="new Director">
        </p>
@@ -81,31 +109,31 @@
         </p>
     </div>
     <div class="form-group">
-       <label for="bg_premiere">Bg Premiere <!-- <p>{{ $movie->bg_premiere }}</p> --></label>
+       <label for="bg_premiere">Премиера <!-- <p>{{ $movie->bg_premiere }}</p> --></label>
         <p>
         <input id="bg_premiere" type="date" class="form-control" name="bg_premiere" value="{{ $movie->bg_premiere }}">
         </p>
     </div>
     <div class="form-group">
-       <label for="start_date">START Date <!-- <p>{{ $movie->start_date }}</p> --></label>
+       <label for="start_date">START Прожекции <!-- <p>{{ $movie->start_date }}</p> --></label>
         <p>
         <input id="start_date" type="date" class="form-control" name="start_date" value="{{ $movie->start_date }}">
         </p>
     </div>
     <div class="form-group">
-       <label for="end_date">END Date <!-- <p>{{ $movie->end_date }}</p> --></label>
+       <label for="end_date">END Прожекции <!-- <p>{{ $movie->end_date }}</p> --></label>
         <p>
         <input id="end_date" type="date" class="form-control" name="end_date" value="{{ $movie->end_date }}">
         </p>
     </div>
     <div class="form-group">
-       <label for="trailer">Trailer</label>
+       <label for="trailer">Трейлър</label>
         <p>
         <input id="trailer" type="text" class="form-control" name="trailer" value="{{ $movie->trailer }}">
         </p>
     </div>
     <div class="form-group">
-       <label for="Rating">Rating <!-- <p>{{ $movie->rating }}</p> --></label>
+       <label for="Rating">Рейтинг <!-- <p>{{ $movie->rating }}</p> --></label>
         <p>
         <input id="rating" type="number" class="form-control" name="rating"  value="{{ $movie->rating }}" placeholder="new Rating" min="1" max="10">
         </p>

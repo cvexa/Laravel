@@ -182,8 +182,9 @@ opacity: 0;
 .mfp-hide {
   display: none !important; }
 .mfp-content iframe{
-	width:100%;
-	min-height:380px;
+	width:65%;
+	min-height:580px;
+	
 }
 .mfp-preloader {
   color: #cccccc;

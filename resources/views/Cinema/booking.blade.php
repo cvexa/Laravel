@@ -4,9 +4,12 @@
 <div id="booking_content">
 <div class="content">
 
+ 
+
+
 	<h1>Резервация</h1>
 	<div class="main">
-		<h2>Резервация на филм .....</h2>
+		<h2>Резервация {{ $screenings->cmMovie['title'] }}</h2>
 		<div class="demo">
 			<div id="seat-map">
 				<div class="front">ЕКРАН</div>					
@@ -15,21 +18,25 @@
 				<ul class="book-left">
 					<li>Филм </li>
 					<li>Прожекция </li>
+					<li>Цена</li>
 					<li>Билет/и</li>
 					<li>Общо</li>
 					<li>Места :</li>
 				</ul>
 				<ul class="book-right">
-					<li>: Gingerclown</li>
-					<li>: April 3, 21:00</li>
+					<li>: {{ $screenings->cmMovie['title'] }}</li>
+					<li>: {{ $screenings->date.' / '.substr($screenings->hour,0,5) }}</li>
+					<li>: {{number_format($screenings->price,2)}} лв.</li>
 					<li>: <span id="counter">0</span></li>
 					<li>: <b><span id="total">0</span></b><i> лв.</i></li>
+
 				</ul>
 				<div class="clear"></div>
 				<ul id="selected-seats" class="scrollbar scrollbar1"></ul>
 				<form id="reserved">
 					{{csrf_field()}}
-					
+				<input type="hidden" name="screenings_id" value="{{$screenings->id}}">
+				<input type="hidden" name="price" value="{{number_format($screenings->price,2)}}">		
 				</form>
 			
 						
@@ -42,7 +49,8 @@
 
 			<script type="text/javascript">
 				var reservation_url = <?php echo json_encode(url('/reservation')); ?>;
-				var price = 10; //price
+				var price = <?php echo number_format($screenings->price,2) ?> ; //price
+				// alert(price);
 				var $cart = $('#selected-seats'); //Sitting Area
 				var $reservation_form = $('#reserved');
 
@@ -142,10 +150,12 @@
 
                 }).success(function (response){
                 	alert('success: ' + JSON.stringify(response));
+                	window.location.replace("<?php echo url('home/') ?>");
 
                 });
 				}
 			</script>
+		
 	</div>
 	<!-- <p class="copy_rights">&copy; 2016 Movie Ticket Booking Widget. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank"> W3layouts</a></p> -->
 </div>

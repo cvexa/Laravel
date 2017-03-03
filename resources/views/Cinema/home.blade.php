@@ -13,8 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
+
 <!-- //for-mobile-apps -->
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
 <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
@@ -22,8 +21,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="{{ URL::asset('css/faqstyle.css') }}" type="text/css" media="all" />
 <link href="{{ URL::asset('css/single.css') }}" rel='stylesheet' type='text/css' />
 <link href="{{ URL::asset('css/medile.css') }}" rel='stylesheet' type='text/css' />
+<link href="{{ URL::asset('css/jquery.seat-charts.css') }}" rel='stylesheet' type='text/css' />
 <!-- banner-slider -->
-<link href="{{ URL::asset('css/jquery.slidey.min.css') }}" rel="stylesheet">
+<!-- <link href="{{ URL::asset('css/jquery.slidey.min.css') }}" rel="stylesheet"> -->
 <!-- //banner-slider -->
 <!-- pop-up -->
 <link href="{{ URL::asset('css/popuo-box.css') }}" rel="stylesheet" type="text/css" media="all" />
@@ -33,12 +33,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //font-awesome icons -->
 <!-- js -->
 <script type="text/javascript" src="{{ URL::asset('js/jquery-2.1.4.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/jquery-2.2.4.js') }}"></script>
+<script src="js/jquery.seat-charts.js"></script>
+
 <!-- //js -->
 <!-- banner-bottom-plugin -->
 <link href="{{ URL::asset('css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all">
-<script src="js/owl.carousel.js"></script>
+<script src="{{ URL::asset('js/owl.carousel.js') }}"></script>
+
   
-    <script type="text/javascript" src="js/html5gallery.js"></script>
+ 
 <script>
 	$(document).ready(function() { 
 		$("#owl-demo").owlCarousel({
@@ -66,7 +70,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	});
 </script>
-<!-- start-smoth-scrolling -->
+<?php date_default_timezone_set('Europe/Sofia'); ?>
+
 </head>
 	
 <body>
@@ -81,91 +86,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="submit" value="Go">
 				</form>
 			</div>
-			<div class="w3l_sign_in_register">
-				<ul>
-					
-@if(!empty($user) && !empty($user->id))
-<li>
-	Wellcome {{ $user->name }} 		
-	@if($is_admin)
-		<b>ADMIN</b>
-	@endif
-</li>
-                                       <li> <a href="{{ url('/logout') }}">
-                                            Logout
-                                        </a>
 
-                                      <!--   <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form> -->
+ 
+ <?php 
+ $user_name = session('name');
+ $genres = session('genres');
+ $role = session('role');
+ ?> 
+ @if(!empty($user_name))        
+ <span style="float:right;margin-top:2%;">Logged as <strong>{{ $user_name }}</strong></span> 
+ @else
+<span style="float:right;margin-top:2%;">Wellcome</strong></span>  
+@endif                    
 
-                                    </li>
-@else                                        
-					<li><a href="{{ url('/login') }}" data-toggle="modal" data-target="/login">Login</a></li>
-					<li><a href="{{ url('/register') }}" data-toggle="modal" data-target="/register">Register</a></li>
-@endif					
-				</ul>
-			</div>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<!-- //header -->
-<!-- bootstrap-pop-up -->
-	<!-- <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					Sign In & Sign Up
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<div class="w3_login_module">
-							<div class="module form-module">
-							  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
-								<div class="tooltip">Click Me</div>
-							  </div>
-							  <div class="form">
-								<h3>Login to your account</h3>
-								<form action="#" method="post">
-								  <input type="text" name="Username" placeholder="Username" required="">
-								  <input type="password" name="Password" placeholder="Password" required="">
-								  <input type="submit" value="Login">
-								</form>
-							  </div>
-							  <div class="form">
-								<h3>Create an account</h3>
-								<form action="#" method="post">
-								  <input type="text" name="Username" placeholder="Username" required="">
-								  <input type="password" name="Password" placeholder="Password" required="">
-								  <input type="email" name="Email" placeholder="Email Address" required="">
-								  <input type="text" name="Phone" placeholder="Phone Number" required="">
-								  <input type="submit" value="Register">
-								</form>
-							  </div>
-							  <div class="cta"><a href="#">Forgot your password?</a></div>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
-	<script>
-		$('.toggle').click(function(){
-		  // Switches the Icon
-		  $(this).children('i').toggleClass('fa-pencil');
-		  // Switches the forms  
-		  $('.form').animate({
-			height: "toggle",
-			'padding-top': 'toggle',
-			'padding-bottom': 'toggle',
-			opacity: "toggle"
-		  }, "slow");
-		});
-	</script> -->
-<!-- //bootstrap-pop-up -->
-<!-- nav -->
+	
+
 	<div class="movies_nav">
 		<div class="container">
 			<nav class="navbar navbar-default">
@@ -182,85 +120,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="/home">Home</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
-								<ul class="dropdown-menu multi-column columns-3">
-									<li>
-									<div class="col-sm-4">
-									
+							<li class="#"><a href="/home">Начало</a></li>
+							
 
-										<ul class="multi-column-dropdown">
-										@if(!empty($genre))
-											@foreach($genre as $genre)
-                                         <li><a href="">{{ $genre -> genres }}</a></li>
-                                               
-											@endforeach
-										@else
-										
-										<li><a href="">Action</a></li>
-										@endif	
-										</ul>
-								
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-									</li>
-								</ul>
-								
-							</li>
-							<li><a href="series.html">tv - series</a></li>
-							<li><a href="news.html">news</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Country <b class="caret"></b></a>
-								<ul class="dropdown-menu multi-column columns-3">
-									<li>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">Asia</a></li>
-												<li><a href="genres.html">France</a></li>
-												<li><a href="genres.html">Taiwan</a></li>
-												<li><a href="genres.html">United States</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">China</a></li>
-												<li><a href="genres.html">HongCong</a></li>
-												<li><a href="genres.html">Japan</a></li>
-												<li><a href="genres.html">Thailand</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">Euro</a></li>
-												<li><a href="genres.html">India</a></li>
-												<li><a href="genres.html">Korea</a></li>
-												<li><a href="genres.html">United Kingdom</a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</li>
-								</ul>
-							</li>
-							<li><a href="short-codes.html">Short Codes</a></li>
-							<li><a href="list.html">A - z list</a></li>
+							<li><a href="news.html">За киното</a></li>
+					
+							<li><a href="short-codes.html">Контакти</a></li>
+							@if(empty($role))
+							<li><a href="{{ url('/login') }}">Вход</a></li>
+							<li><a href="{{ url('/register') }}">Регистрация</a></li>
+							@endif
+							@if($role == \Config::get('constants.ROLE_USER'))
+							<li><a href="{{url('/profile')}}">Моят Профил</a></li>
+							<li><a href="{{url('/logout')}}">Излез</a></li>
+							@endif
+							@if($role == \Config::get('constants.ROLE_ADMIN'))
+
+							<li><a href="{{url('/movies')}}">Admin Panel</a></li>
+							<li><a href="{{url('/logout')}}">Излез</a></li>
+							@endif
+							<li><a href="{{ url('/reservation') }}">Резервация</a></li>
+
 						</ul>
 					</nav>
 				</div>
 			</nav>	
 		</div>
 	</div>
-	
+
 <!-- //nav -->
 <div class="general_social_icons">
 	<nav class="social">
@@ -294,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"> </div>
 			</div>
 			<div class="col-md-5 w3ls_footer_grid1_left">
-				<p>&copy; 2016 One Movies. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+				<p>&copy; 2017 One Movies. All rights reserved | Development by Vratsa Software | Cvexa</p>
 			</div>
 			<div class="col-md-7 w3ls_footer_grid1_right">
 				<ul>
@@ -327,20 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //footer -->
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-<script>
-$(document).ready(function(){
-    $(".dropdown").hover(            
-        function() {
-            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
-            $(this).toggleClass('open');        
-        },
-        function() {
-            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
-            $(this).toggleClass('open');       
-        }
-    );
-});
-</script>
+
 <!-- //Bootstrap Core JavaScript -->
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">
@@ -359,5 +233,7 @@ $(document).ready(function(){
 			});
 	</script>
 <!-- //here ends scrolling icon -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+
 </body>
 </html>

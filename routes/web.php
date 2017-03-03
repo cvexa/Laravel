@@ -20,23 +20,19 @@ Route::get('/', function () {
  Route::match(['get'], 'users/{id}/delete_user','UserController2@delete_user');
  Route::match(['get'], 'users/{id}/delete','UserController2@delete');
 
-//  Route::get('/home', function () {
-//     return view('cinema.index');
-// });
-
-// Route::resource('movies', 'baner');
-
-
-
+ Route::get('/home','BanerController@index');
 
 Auth::routes();
 
-Route::get('/logged', 'baner@index_logged');
+Route::get('/logged', 'BanerController@index_logged');
 
 
-Route::get('/logout', 'baner@logout');
 
-Route::get('/home/{user?}', 'baner@index');
+
+
+Route::get('/logout', 'BanerController@logout');
+
+// Route::get('/home/{user?}', 'BanerController@index');
 
 
 
@@ -45,5 +41,7 @@ Route::get('/single', function () {
 });
 
 Route::resource('movies', 'MoviesController');
+Route::get('/reservation{id}', 'ReservationController@index');
+Route::post('/reservation/', 'ReservationController@store');
 
 

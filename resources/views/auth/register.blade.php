@@ -1,5 +1,5 @@
 @extends('cinema.home')
-
+@section('title','Register')
 @section('content')
 <div class="container">
     <div class="row">

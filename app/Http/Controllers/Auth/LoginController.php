@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-  
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -28,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/logged';
+    protected $redirectTo = '/movies';
 
     /**
      * Create a new controller instance.
@@ -42,6 +43,20 @@ class LoginController extends Controller
     public function logout(Request $request)
 {
     $this->performLogout($request);
-    return redirect()->route('cinema.home');
+    return redirect()->route('/home');
 }
+
+    /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        session()->put('role', Auth::guard()->user()->role);
+        session()->put('name', Auth::guard()->user()->name);
+        return redirect()->intended($this->redirectPath());
+    }
 }
