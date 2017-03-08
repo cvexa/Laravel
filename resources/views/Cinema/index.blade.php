@@ -148,7 +148,7 @@ $date_movie_soon=strtotime($coming_soon);
 						$day = "Неделя";
 						break;	
 					}		
-					echo' <li><img src="/images/arrow-left2.gif" width="50px" height="50px" class="btn_arrow" ><a href="javascript:void(0)" onclick="show_only(\'' . $dt->format("Y-m-d") . '\')">' . $dt->format("Y-m-d") . 'г.<br>'.$day.'</a></li>';
+					echo' <li><img src="/images/arrow-left2.gif" width="50px" height="50px" class="btn_arrow" ><a href="javascript:void(0)" onclick="show_only(\'' . $dt->format("Y-m-d") . '\')">' . $dt->format("Y-m-d") . '<br>'.$day.'</a></li>';
 					
 				}
 
@@ -194,7 +194,7 @@ $date_movie_soon=strtotime($coming_soon);
 					</td>
 					<td>
 						<p>
-							<a href="{{ url('/reservation'.$screening->id ) }}">| {{substr($screening->hour,0,5)}} |<br> цена : <br> | {{number_format($screening->price,2)}}.лв |</a>
+							<a href="{{ url('/reservation/'.$screening->id ) }}">| {{substr($screening->hour,0,5)}} |<br> цена : <br> | {{number_format($screening->price,2)}}.лв |</a>
 						</p>
 					</td>
 						</tr>

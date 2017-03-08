@@ -57,6 +57,7 @@ class LoginController extends Controller
     {
         session()->put('role', Auth::guard()->user()->role);
         session()->put('name', Auth::guard()->user()->name);
+        session()->put('u_id', Auth::guard()->user()->id);
         return redirect()->intended($this->redirectPath());
     }
 }

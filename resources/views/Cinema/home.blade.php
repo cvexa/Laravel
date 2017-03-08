@@ -34,7 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- js -->
 <script type="text/javascript" src="{{ URL::asset('js/jquery-2.1.4.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/jquery-2.2.4.js') }}"></script>
-<script src="js/jquery.seat-charts.js"></script>
+<script src="{{ URL::asset('js/jquery.seat-charts.js') }}"  ></script>
 
 <!-- //js -->
 <!-- banner-bottom-plugin -->
@@ -139,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="{{url('/movies')}}">Admin Panel</a></li>
 							<li><a href="{{url('/logout')}}">Излез</a></li>
 							@endif
-							<li><a href="{{ url('/reservation') }}">Резервация</a></li>
+							<!-- <li><a href="{{ url('/reservation') }}">Резервация</a></li> -->
 
 						</ul>
 					</nav>

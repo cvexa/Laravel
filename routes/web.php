@@ -41,7 +41,7 @@ Route::get('/single', function () {
 });
 
 Route::resource('movies', 'MoviesController');
-Route::get('/reservation{id}', 'ReservationController@index');
+Route::get('/reservation/{id}', 'ReservationController@index');
 Route::post('/reservation/', 'ReservationController@store');
 
 

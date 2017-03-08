@@ -4,12 +4,39 @@
 <div id="booking_content">
 <div class="content">
 
- 
+<?php  
+ foreach($sold as $value){
+ $taken_seats[] =  ($value->row_num ."_". $value->column_num);
+ }
+ ?>
+ @if(empty($_GET['max']))
+<div class="main">
+
+<h2>Избери Брой билети : </h2><br>
+<center>
+<form id="max_form" action="{{ url('/reservation/'.$screenings->id ) }}">
+				{{csrf_field()}}
+		<input type="number" name="max" value="">
+	    <input type="submit" name="submit" value="Продължи" class="checkout-button">	
+</form>
+
+<h2>{{ $screenings->cmMovie['title'] }}</h2><br>
+<p>Прожекция - {{ $screenings->date.' / '.substr($screenings->hour,0,5) }}</p><br>
+<p>Цена - {{number_format($screenings->price,2)}} лв. </p><br>
+<p>Формат - {{$screenings->cmMovie['video_format']}}</p><br>
+
+
+<iframe width="65%" height="300px" src="{{ $screenings->cmMovie->trailer}}?autoplay=1" frameborder="1" allowfullscreen></iframe>
+
+</center>	
+</div>				
+ @else
+<?php $max = $_GET['max']; ?> 
 
 
 	<h1>Резервация</h1>
 	<div class="main">
-		<h2>Резервация {{ $screenings->cmMovie['title'] }}</h2>
+		<h2>Резервация За <b>{{ $screenings->cmMovie['title'] }}</b></h2>
 		<div class="demo">
 			<div id="seat-map">
 				<div class="front">ЕКРАН</div>					
@@ -50,6 +77,7 @@
 			<script type="text/javascript">
 				var reservation_url = <?php echo json_encode(url('/reservation')); ?>;
 				var price = <?php echo number_format($screenings->price,2) ?> ; //price
+				var max = <?php echo number_format($max,2) ?>
 				// alert(price);
 				var $cart = $('#selected-seats'); //Sitting Area
 				var $reservation_form = $('#reserved');
@@ -87,7 +115,8 @@
 						},
 						click: function () { 
 						//Click event
-							if (this.status() == 'available') { //optional seat
+						
+							if (this.status() == 'available' && $('#selected-seats li').length < max) { //optional seat
 								$('<li>Ред'+(this.settings.row+1)+' Място'+this.settings.label+'</li>')
 									.attr('id', 'cart-item-'+this.settings.id)
 									.data('seatId', this.settings.id)
@@ -98,14 +127,15 @@
 									.appendTo($reservation_form);
 								$('<input type="hidden" name="columns[]" value="'+(this.settings.label)+'">')
 									
-									.appendTo($reservation_form);	
+									.appendTo($reservation_form);
+
 
 									// alert(this.settings.id);
 
 								$counter.text(sc.find('selected').length+1);
 								$total.text(recalculateTotal(sc)+price);
 
-											
+										
 								return 'selected';
 							} else if (this.status() == 'selected') { //Checked
 
@@ -117,6 +147,7 @@
 									//Delete reservation
 									$('#cart-item-'+this.settings.id).remove();
 									//optional
+								
 									return 'available';
 							} else if (this.status() == 'unavailable') { //sold
 								return 'unavailable';
@@ -126,7 +157,8 @@
 						}
 					});
 					//sold seat
-					sc.get(['1_2', '4_4','4_5','6_6','6_7','8_5','8_6','8_7','8_8', '10_1', '10_2']).status('unavailable');
+					sc.get(<?php echo json_encode($taken_seats) ?>).status('unavailable');
+					
 						
 				});
 				//sum total money
@@ -139,26 +171,32 @@
 					return total;
 				}
 
-				
+	
+ 		
+            
+ 		
 
 				function check(){
-					 alert( $('#selected-seats').text());
+					 // alert( $('#selected-seats').text());
+					 //  alert( $('#selected-seats').text().length);
                 $.ajax({
                 	url: reservation_url,
                 	type: 'post',
                 	data: $('#reserved').serialize()
 
                 }).success(function (response){
-                	alert('success: ' + JSON.stringify(response));
+                	alert(JSON.stringify(response));
                 	window.location.replace("<?php echo url('home/') ?>");
 
                 });
 				}
 			</script>
+			
 		
+      
 	</div>
 	<!-- <p class="copy_rights">&copy; 2016 Movie Ticket Booking Widget. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank"> W3layouts</a></p> -->
 </div>
 </div>
-
+@endif
 @endsection
