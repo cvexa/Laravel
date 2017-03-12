@@ -15,24 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
- Route::resource('users', 'UserController2');
- Route::match(['put'], 'users/{user}','UserController2@update');
- Route::match(['get'], 'users/{id}/delete_user','UserController2@delete_user');
- Route::match(['get'], 'users/{id}/delete','UserController2@delete');
 
- Route::get('/home','BanerController@index');
-
-Auth::routes();
-
+// main routes
+Route::get('/home','BanerController@index');
 Route::get('/logged', 'BanerController@index_logged');
-
-
-
-
-
 Route::get('/logout', 'BanerController@logout');
 
-// Route::get('/home/{user?}', 'BanerController@index');
+// auth routes
+Auth::routes();
+
+// profile routes
+Route::get('/profile/{id}','ProfileController@index');
+Route::get('/profile/{id}/edit','ProfileController@edit');
+Route::put('/profile/{id}','ProfileController@update');
 
 
 
@@ -40,6 +35,8 @@ Route::get('/single', function () {
     return view('cinema.single');
 });
 
+
+// Movies and reservation routes
 Route::resource('movies', 'MoviesController');
 Route::get('/reservation/{id}', 'ReservationController@index');
 Route::post('/reservation/', 'ReservationController@store');

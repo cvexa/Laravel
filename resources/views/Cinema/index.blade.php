@@ -49,7 +49,7 @@ $date_movie_soon=strtotime($coming_soon);
 					<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
 						<!-- <a href="{{ url('/movies/'.$movie->id) }}" class="hvr-shutter-out-horizontal"> -->
 						<a href="#movie{{$movie->id}}" class="w3_play_icon">
-							<img src="{{ url('/posters/'.$movie->poster) }}" title="album-name" class="img-responsive" alt="poster" width="180px" height="280px" />
+							<img src="{{ url('/posters/'.$movie->poster) }}" title="{{$movie->title}}" class="img-responsive" alt="poster" width="180px" height="280px" />
 							<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 						</a>
 						<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -105,7 +105,7 @@ $date_movie_soon=strtotime($coming_soon);
 </div>
 @foreach($movies as $movie)
 <div id="movie{{$movie->id}}" class="mfp-hide">
-	<center><iframe width="65%" height="300px" src="{{ $movie->trailer}}" frameborder="1" allowfullscreen></iframe></center>
+	<center><iframe name = "video" width="65%" height="300px" src="{{ $movie->trailer}}" frameborder="1" allowfullscreen></iframe></center>
 </div>
 @endforeach				
 <!-- general -->
@@ -148,7 +148,7 @@ $date_movie_soon=strtotime($coming_soon);
 						$day = "Неделя";
 						break;	
 					}		
-					echo' <li><img src="/images/arrow-left2.gif" width="50px" height="50px" class="btn_arrow" ><a href="javascript:void(0)" onclick="show_only(\'' . $dt->format("Y-m-d") . '\')">' . $dt->format("Y-m-d") . '<br>'.$day.'</a></li>';
+					echo' <li><img src="/images/ArrowDownOrange.gif-c200" width="50px" height="50px" class="btn_arrow" ><a href="javascript:void(0)" onclick="show_only(\'' . $dt->format("Y-m-d") . '\')">' . $dt->format("Y-m-d") . '<br>'.$day.'</a></li>';
 					
 				}
 
@@ -177,12 +177,26 @@ $date_movie_soon=strtotime($coming_soon);
 					<td>
 							<span class="trailer">
 						<center>
-							<iframe width="65%" height="300px" src="{{ $screening->cmMovie->trailer}}" frameborder="1" allowfullscreen></iframe>
+						<p><b>Кликни долу за Трейлър : </b></p><br>
+						<img src="../images/ArrowDownOrange.gif-c200" title="{{$screening->cmMovie['title']}}" class="program_hover_tr" alt="poster" width="5%" height="5%" /><br>
+						<!-- <div class="w3l-movie-gride-agile w3l-movie-gride-agile1"> -->
+						<!-- <a href="{{ url('/movies/'.$movie->id) }}" class="hvr-shutter-out-horizontal"> -->
+						<a href="#movie{{$screening->cmMovie['id']}}"" class="w3_play_icon">
+						<div class="hover_trailer">
+						
+							<img src="../images/play_animated.gif" title="{{$screening->cmMovie['title']}}" class="program_hover_tr" alt="poster" width="50%" height="50%" />
+							
+						</div>
+						</a>
+
+							
+							<!-- <iframe width="65%" height="300px" src="{{ $screening->cmMovie->trailer}}" frameborder="1" allowfullscreen></iframe> -->
 						</center>
 							</span>
 						<div class="desc">
 						
 						<p>{{mb_substr($screening->cmMovie['description'],0,200)}}...<a href="">още</a></p>
+						<hr>
 						<p>@if($screening->cmMovie['translation'] == 'subtitles')
                         Версия : Субтитри
                         @else
@@ -193,7 +207,7 @@ $date_movie_soon=strtotime($coming_soon);
 						</div>
 					</td>
 					<td>
-						<p>
+						<p class="screening_hours">
 							<a href="{{ url('/reservation/'.$screening->id ) }}">| {{substr($screening->hour,0,5)}} |<br> цена : <br> | {{number_format($screening->price,2)}}.лв |</a>
 						</p>
 					</td>
@@ -253,7 +267,7 @@ $date_movie_soon=strtotime($coming_soon);
 				fixedBgPos: true,
 				overflowY: 'auto',
 				closeBtnInside: true,
-				preloader: false,
+				preloader: true,
 				midClick: true,
 				removalDelay: 300,
 				mainClass: 'my-mfp-zoom-in'
@@ -261,5 +275,6 @@ $date_movie_soon=strtotime($coming_soon);
 
 		});
 	</script>
+
 
 	@endsection

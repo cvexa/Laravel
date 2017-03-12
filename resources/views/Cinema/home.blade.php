@@ -11,8 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<meta name="keywords" content="Movies,Cinema....." />
 
 <!-- //for-mobile-apps -->
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
@@ -77,27 +76,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <div class="header">
 		<div class="container">
-			<div class="w3layouts_logo">
-				<a href="{{url('/home')}}"><h1>One<span>Movies</span></h1></a>
-			</div>
-			<div class="w3_search">
+		<div id="header_logo"><h1>Кино Метропол</h1></div>
+			<!-- <div class="w3layouts_logo">
+				<a href="{{url('/home')}}"><h1>Kино<span>МЕТРОПОЛ</span></h1></a>
+			</div> -->
+			<!-- <div class="w3_search">
 				<form action="#" method="post">
 					<input type="text" name="Search" placeholder="Search" required="">
 					<input type="submit" value="Go">
 				</form>
-			</div>
+			</div> -->
 
  
  <?php 
  $user_name = session('name');
  $genres = session('genres');
  $role = session('role');
+ $u_id = session('u_id');
  ?> 
- @if(!empty($user_name))        
+<!--  @if(!empty($user_name))        
  <span style="float:right;margin-top:2%;">Logged as <strong>{{ $user_name }}</strong></span> 
  @else
-<span style="float:right;margin-top:2%;">Wellcome</strong></span>  
-@endif                    
+<span class="w3layouts_logo" style="float:right;margin-top:2%;">Wellcome</strong></span>  
+@endif   -->                  
 
 			<div class="clearfix"> </div>
 		</div>
@@ -131,11 +132,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="{{ url('/register') }}">Регистрация</a></li>
 							@endif
 							@if($role == \Config::get('constants.ROLE_USER'))
-							<li><a href="{{url('/profile')}}">Моят Профил</a></li>
+							<li><a href="{{ url('/profile/'.$u_id ) }}">Моят Профил</a></li>
 							<li><a href="{{url('/logout')}}">Излез</a></li>
 							@endif
 							@if($role == \Config::get('constants.ROLE_ADMIN'))
-
+ 							<li><a href="{{ url('/profile/'.$u_id ) }}">Моят Профил</a></li>
 							<li><a href="{{url('/movies')}}">Admin Panel</a></li>
 							<li><a href="{{url('/logout')}}">Излез</a></li>
 							@endif
@@ -159,6 +160,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</ul>
   </nav>
   @yield('content')
+  </div>
 
   <!-- footer -->
 	<div class="footer">
@@ -176,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<div class="col-md-6 w3ls_footer_grid_right">
-					<a href="index.html"><h2>One<span>Movies</span></h2></a>
+					<a href="index.html"><h2>Кино<span>Метропол</span></h2></a>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

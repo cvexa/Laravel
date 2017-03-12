@@ -245,6 +245,8 @@ button::-moz-focus-inner {
 .mfp-close-btn-in .mfp-close {
   color: #333333; 
   background: none;
+  margin-left: 50%;
+  margin-bottom: 5%;
   }
 
 .mfp-image-holder .mfp-close,

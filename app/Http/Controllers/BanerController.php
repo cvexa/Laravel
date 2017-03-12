@@ -35,10 +35,13 @@ class BanerController extends Controller
      
      $registered =  Auth::user()->name;
      $role = Auth::user()->role;
-     echo $registered;
+     $u_id = Auth::user()->id;
+     // echo $registered;
      session()->put('name', $registered);
-     session()->put('role', $role);  
-     return redirect('/home');
+     session()->put('role', $role);
+     session()->put('u_id', $u_id);
+
+     return redirect('/profile/'.$u_id);
       // echo $registered;
     
     }
@@ -49,6 +52,8 @@ public function logout(){
 
    session()->forget('name');
    session()->forget('role');
+   
+   session()->forget('u_id');
    return redirect ("/home");
     
 

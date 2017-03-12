@@ -68,5 +68,8 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'role' => \Config::get('constants.ROLE_USER'),
         ]);
+        session()->put('role', Auth::guard()->user()->role);
+        session()->put('name', Auth::guard()->user()->name);
+        session()->put('u_id', Auth::guard()->user()->id);
     }
 }

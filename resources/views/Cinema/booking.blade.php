@@ -4,10 +4,15 @@
 <div id="booking_content">
 <div class="content">
 
-<?php  
- foreach($sold as $value){
- $taken_seats[] =  ($value->row_num ."_". $value->column_num);
+<?php
+$u_id = session('u_id');
+if (count($sold) > 1) {
+ 	foreach($sold as $value){
+    $taken_seats[] =  ($value->row_num ."_". $value->column_num);
  }
+ }else{
+ 	$taken_seats =["0_0"];
+ } 
  ?>
  @if(empty($_GET['max']))
 <div class="main">
@@ -186,7 +191,7 @@
 
                 }).success(function (response){
                 	alert(JSON.stringify(response));
-                	window.location.replace("<?php echo url('home/') ?>");
+                	window.location.replace("<?php echo url('profile/'.$u_id) ?>");
 
                 });
 				}
