@@ -25,7 +25,7 @@
                 <th>ID</th>
                 <th>Име</th>
                 <th>Описание</th>
-                <th>Прожекции дата/час</th>
+                <!-- <th>Прожекции дата/час</th> -->
                 
                 <th>Премиера</th>
                 <th>Рейтинг (1-10)</th>
@@ -38,13 +38,13 @@
             <td>{{ $movie->id }}</td>
             <td>{{ $movie->title }}</td>
             <td>{{ $movie->description }}</td>
-            <td>
-            @foreach($movie->movieScreenings as $screen)
+            <!-- <td> -->
+         <!--    @foreach($movie->movieScreenings as $screen)
             |{{$screen->date }},
             <a href="">{{substr($screen->hour,0,5)}}</a>|<br>
             
             @endforeach
-            </td>
+            </td> -->
             <td>{{ $movie->bg_premiere }}</td>
             <td>{{ $movie->rating }}</td>
         

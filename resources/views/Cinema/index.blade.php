@@ -157,7 +157,7 @@ $date_movie_soon=strtotime($coming_soon);
 
 			</ul>
 
-
+            <div class="program_table">
 			<table class="table table-bordered" id="program">
 				<thead>
 					<tr class="heading_program">
@@ -208,7 +208,7 @@ $date_movie_soon=strtotime($coming_soon);
 					</td>
 					<td>
 						<p class="screening_hours">
-							<a href="{{ url('/reservation/'.$screening->id ) }}">| {{substr($screening->hour,0,5)}} |<br> цена : <br> | {{number_format($screening->price,2)}}.лв |</a>
+							<a href="{{ url('/reservation/'.$screening->id ) }}"><button class="screen_btn">| {{substr($screening->hour,0,5)}} |<br> цена : <br> | {{number_format($screening->price,2)}}.лв |</button></a>
 						</p>
 					</td>
 						</tr>
@@ -216,7 +216,7 @@ $date_movie_soon=strtotime($coming_soon);
 						@endforeach
 					</tbody>
 				</table>
-
+               </div>
 			</div>
 		</div>
 	</div>

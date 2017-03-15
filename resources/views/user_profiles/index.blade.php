@@ -3,6 +3,20 @@
 @section('content')
 
 <div class="content">
+<?php 
+$registered_now = session('registered_now');
+if($registered_now == 1){
+    echo " <div class='alert alert-success'>
+               <center><p>Успешно се регистрирахте !</p></center> 
+            </div>";
+}else{
+
+}
+
+// var_dump($movies);
+// $new = $movies->unique();
+// var_dump($new)
+?>
 <div class="">
     <div class="card hovercard">
         <div class="card-background">
@@ -11,10 +25,11 @@
         </div>
         <div class="useravatar">
              @if(empty($user->photo))
-           <p><br> <img src="../images/user.png" alt="profile_pic"></p>
+           <p><br><a href="{{ url('/profile/'.$user->id.'/edit' ) }}"> <img src="../images/user.png" alt="profile_pic"></a></p>
           @else
-           <p><br> <img src="{{url('/users/'.$user->photo)}}" alt="profile_pic"></p>
+           <p><br> <a href="{{ url('/profile/'.$user->id.'/edit' ) }}"><img src="{{url('/users/'.$user->photo)}}" alt="profile_pic"></a></p>
            @endif
+           
         </div>
         <div class="card-info"> <span class="card-title">{{$user->name}}</span>
         
@@ -49,7 +64,8 @@
                         <th>Филм :</th>
                         <th>Дата</th>
                         <th>Ред / Място</th>
-                        <th>Цена</th>
+                        <th>Час</th>
+                        <th>Цена</th>                       
                         <th>Код за Резервацията</th>
                     </tr>
             </thead>
@@ -57,22 +73,27 @@
         <?php $a = 0; $b=0;?> 
         @foreach($sold as $value)
         
-    
+        @if(date('Y-m-d') == $value->cmSold->date)
+        <tr style="border:#F00 2px solid">
+        @else
         <tr>
+        @endif
     
        @foreach($movies as $movie)
          @if($movie->id == $value->cmSold->cm_movie_id)
-         <td>{{$movie->title}}</td>
+         <td><p>{{$movie->title}}</p></td>
          @endif
        @endforeach
-         
+           
+
             <td><p>{{$value->cmSold->date}}</p></td>
-            <td><p>Ред: {{$value->row_num}} / Място: {{$value->column_num}}</p></td>
+            <td><p>Ред: {{$value->row_num}} / Място: {{$value->column_num}}</p></td>  
+            <td><p>{{substr($value->cmSold->hour,0,5)}}</p></td>
             <td><p>{{$value->price}} лв.</p></td>
             <td><p><strong> {{$value->code}}</strong> </p></td>
        <?php $a += $value->price; $b++ ?>
           </tr>
-
+       
         @endforeach 
         <tr>
         <td></td>
@@ -83,7 +104,7 @@
         </tr>
         </tbody>
         </table>
-
+       <span style="color:#F00;">*в червено очертание се показват прожекциите който са за днес</span> 
         </div>
 
         
