@@ -6,18 +6,17 @@
             <div class="col-lg-12 margin-tb">
                
                 
-                    <center><h1>Филми</h1></center>
+                    <center><h1>Прожекции</h1></center>
 
             
                  <!-- <div class="pull-right">
                     <p><a class="btn btn-success" href="{{ url('logout') }}"> LOGOUT</a></p>
                 </div> -->
                 <div class="pull-right">
-                    <p><a class="btn btn-success" href="{{ url('movies/create') }}"> Добави Нов Филм</a></p><br>
-                   
+                    <p><a class="btn btn-success" href="{{ url('screenings/create') }}"> Добави Нова Прожекция</a></p><br>
 
                 </div>
-                 <div id="b"><a href="{{url('/admin')}}"><button class="hvr-float-shadow">Назад</button></a></div>
+                <div id="b"><a href="{{url('/admin')}}"><button class="hvr-float-shadow">Назад</button></a></div>
             </div>
         </div>
          <p><i> Вход като Admin : {{session('name')}}</i><br></p>
@@ -30,41 +29,38 @@
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>
-                <th>Име</th>
-                <th>Описание</th>
+                <th>Дата</th>
+                <th>Час</th>
                 <!-- <th>Прожекции дата/час</th> -->
                 
-                <th>Премиера</th>
-                <th>Рейтинг (1-10)</th>
+                <th>Филм</th>
+                <th>Цена </th>
+                <th>Свободни места </th>
                 <th width="280px">Операции</th>
             </tr>
-          
-        @foreach ($movies as $movie)
-         @if(date('Y-m-d') == $movie->bg_premiere)
+         @foreach($movies as $movie)
+         @foreach($movie->movieScreenings as $screen)
+
+         @if(date('Y-m-d') == $screen->date)
         <tr style="border:#F00 2px solid;background-color: #d3d3d3;">
         @else
         <tr>
         @endif
         
-            <td>{{ $movie->id }}</td>
+            <td>{{ $screen->id }}</td>
+            <td>{{ $screen->date }}</td>
+            <td>{{ substr($screen->hour,0,5) }}</td>
+      
             <td>{{ $movie->title }}</td>
-            <td>{{ $movie->description }}</td>
-            <!-- <td> -->
-         <!--    @foreach($movie->movieScreenings as $screen)
-            |{{$screen->date }},
-            <a href="">{{substr($screen->hour,0,5)}}</a>|<br>
-            
-            @endforeach
-            </td> -->
-            <td>{{ $movie->bg_premiere }}</td>
-            <td>{{ $movie->rating }}</td>
+            <td>{{ $screen->price }}</td>
+            <td>{{ $screen->free_seats }}</td>
         
 
             <td>
-                <a class="btn btn-info" href="{{ url('/movies/'.$movie->id ) }}">Покажи още</a>
-                <a class="btn btn-primary" href="{{ url('/movies/'.$movie->id.'/edit' ) }}">Промени</a>
+                <a class="btn btn-info" href="{{ url('/screenings/'.$screen->id  ) }}">Покажи още</a>
+                <a class="btn btn-primary" href="{{ url('/screenings/'.$screen->id .'/edit' ) }}">Промени</a>
                 <p>
-                <form action="{{ url('/movies/'.$movie->id ) }}" method="POST" onsubmit="return ConfirmDelete()">
+                <form action="{{ url('/screenings/'.$screen->id  ) }}" method="POST" onsubmit="return ConfirmDelete()">
                  {{ method_field('DELETE') }}
                  <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                  <p><input type="submit" class="btn btn-danger" value="Изтрии"></p>
@@ -74,10 +70,10 @@
         </tr>
       
         @endforeach
+        @endforeach
         </table>
          
-          <p><i> Вход като Admin : {{session('name')}}</i><br></p>
-           <p><span style="color:#F00;">* в червено очертание се показват Филмите които премиери са за днес !</span></p> 
+         
         <script>
 
           function ConfirmDelete()

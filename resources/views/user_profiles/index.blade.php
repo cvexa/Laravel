@@ -74,7 +74,7 @@ if($registered_now == 1){
         @foreach($sold as $value)
         
         @if(date('Y-m-d') == $value->cmSold->date)
-        <tr style="border:#F00 2px solid">
+        <tr style="border:#F00 2px solid;background-color: #d3d3d3;">
         @else
         <tr>
         @endif

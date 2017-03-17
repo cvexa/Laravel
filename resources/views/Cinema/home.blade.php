@@ -137,7 +137,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							@endif
 							@if($role == \Config::get('constants.ROLE_ADMIN'))
  							<li><a href="{{ url('/profile/'.$u_id ) }}">Моят Профил</a></li>
-							<li><a href="{{url('/movies')}}">Admin Panel</a></li>
+							<li><a href="{{url('/admin')}}">Admin Panel</a></li>
+							
 							<li><a href="{{url('/logout')}}">Излез</a></li>
 							@endif
 							<!-- <li><a href="{{ url('/reservation') }}">Резервация</a></li> -->

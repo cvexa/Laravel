@@ -38,7 +38,15 @@ Route::get('/single', function () {
 
 // Movies and reservation routes
 Route::resource('movies', 'MoviesController');
+Route::resource('screenings', 'ScreeningsController');
+Route::get('/admin/codes', 'AdminPanelController@codes');
+Route::get('/admin/codes/check', 'AdminPanelController@checking');
 Route::get('/reservation/{id}', 'ReservationController@index');
 Route::post('/reservation/', 'ReservationController@store');
+
+//Admin
+Route::get('/admin', 'AdminPanelController@index');
+
+
 
 
