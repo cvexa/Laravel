@@ -27,10 +27,11 @@
                 <p>{{ $message }}</p>
             </div>
         @endif
-        <table class="table table-bordered">
+        <table class="table table-bordered" style="text-align: center;"">
             <tr>
                 <th>ID</th>
                 <th>Име</th>
+                <th>Постер</th>
                 <th>Описание</th>
                 <!-- <th>Прожекции дата/час</th> -->
                 
@@ -48,7 +49,14 @@
         
             <td>{{ $movie->id }}</td>
             <td>{{ $movie->title }}</td>
+              @if(empty($movie->poster))
+           <td><img src="{{ url('/posters/def.jpg') }}" title="{{$movie->title}}" alt="poster" width="100px" height="100px" /></td>
+          @else
+         <td><img src="{{ url('/posters/'.$movie->id.'/'.$movie->poster) }}" title="{{$movie->title}}" alt="poster" width="100px" height="100px" /></td>
+           @endif
+            
             <td>{{ $movie->description }}</td>
+
             <!-- <td> -->
          <!--    @foreach($movie->movieScreenings as $screen)
             |{{$screen->date }},

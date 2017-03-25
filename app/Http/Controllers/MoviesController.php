@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Facades\Image;
 use App\cl_film_screening;
+// use App\cm_movie;
 // use Storage;
 
 
@@ -61,7 +62,21 @@ class MoviesController extends Controller
         'trailer' => 'required',
         'rating' => 'required|max:10',
          ]);
-		$cm_movie = cm_movie::create($request->all());
+        $cm_movie = new cm_movie;
+	    $cm_movie ->title = $request->title;
+	    $cm_movie ->description = $request->description;
+	    $cm_movie ->country = $request->country;
+	    $cm_movie ->translation = $request->translation;
+	    $cm_movie ->director = $request->director;
+	    $cm_movie ->age_rate = $request->age_rate;
+	    $cm_movie ->bg_premiere = $request->bg_premiere;
+	    $cm_movie ->start_date = $request->start_date;
+	    $cm_movie ->end_date = $request->end_date;
+	    $cm_movie ->trailer = $request->trailer;
+	    $cm_movie ->rating = $request->rating;
+	    
+
+
 
 		$ind = 1;
 		foreach ($request->cl_genres as $key => $value) {
@@ -76,11 +91,12 @@ class MoviesController extends Controller
 			$files=Input::file('poster');
 			// var_dump($files);
 			$name=time()."_".$files->getClientOriginalName();
-			$img =$files->move(public_path().'/posters',$name);
+			$img =$files->move(public_path().'/posters/'.$cm_movie->id,$name);
 			$cm_movie ->poster = $name;
           
-		}
-		$cm_movie->save();
+	}
+	    $cm_movie->save();
+		
 
         Session::flash('success', 'Successfully added a movie to DB!');
 		return redirect('/movies');
@@ -109,7 +125,19 @@ class MoviesController extends Controller
 	{
 
 		
-        $movie->update($request->all());
+        // $movie->update($request->all());
+        // $cm_movie->update();
+	    $movie ->title = $request->title;
+	    $movie ->description = $request->description;
+	    $movie ->country = $request->country;
+	    $movie ->translation = $request->translation;
+	    $movie ->director = $request->director;
+	    $movie ->age_rate = $request->age_rate;
+	    $movie ->bg_premiere = $request->bg_premiere;
+	    $movie ->start_date = $request->start_date;
+	    $movie ->end_date = $request->end_date;
+	    $movie ->trailer = $request->trailer;
+	    $movie ->rating = $request->rating;
         $ind = 1;
         if ($request->cl_genres) {
         	
@@ -122,16 +150,22 @@ class MoviesController extends Controller
 	}
 		if(Input::hasFile('poster')){
 			$files = Input::file('poster');
-			// var_dump($files);
-
-			$name = time()."_".$files->getClientOriginalName();
-			$img  = $files->move(public_path().'/posters',$name);
-			$movie ->poster = $name;
 			
-          
+			// var_dump($files);
+			$name=time()."_".$files->getClientOriginalName();
+			$img =$files->move(public_path().'/posters/'.$movie->id,$name);
+			
+			if($movie->poster)
+		{
+			$file_path = public_path().'/posters/'.$movie->id.'/'.$movie->poster;
+			unlink($file_path);
 		}
-		
-		$movie->update();
+         $movie->poster = $name; 
+		}else{
+			$movie->poster = $movie->poster;
+		}
+			
+        $movie->save();
 			
 
         Session::flash('success', 'Successfully edited movie!');

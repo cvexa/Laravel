@@ -35,10 +35,12 @@ class ReservationController extends Controller
 			
 			'msg' => 'Успешно запазихте билети за филма !',
 		];
+		// $count = 0;
 		$smallL = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQ456789";
 		$smallS = str_shuffle($smallL);
 		$subD = substr($smallS,0,5);
 		foreach ($request->rows as $key => $value) {
+			// $count++;
 			$cm_ticket = new CmSoldTicket;
 			$cm_ticket->row_num = $value;
 			$cm_ticket->column_num = $request->columns[$key];
@@ -51,7 +53,7 @@ class ReservationController extends Controller
 
 			$response[] = $value;	
 		}
-
+       // echo $count;
 		
 		return \Response::json($response);
 		

@@ -124,9 +124,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<li class="#"><a href="/home">Начало</a></li>
 							
 
-							<li><a href="news.html">За киното</a></li>
+							<li><a href="{{ url('/about') }}">За киното</a></li>
 					
-							<li><a href="short-codes.html">Контакти</a></li>
+							<li><a href="{{ url('/contacts') }}">Контакти</a></li>
 							@if(empty($role))
 							<li><a href="{{ url('/login') }}">Вход</a></li>
 							<li><a href="{{ url('/register') }}">Регистрация</a></li>
@@ -169,7 +169,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="w3ls_footer_grid">
 				<div class="col-md-6 w3ls_footer_grid_left">
 					<div class="w3ls_footer_grid_left1">
-						<h2>Subscribe to us</h2>
+						<h2>Абонирай се </h2>
 						<div class="w3ls_footer_grid_left1_pos">
 							<form action="#" method="post">
 								<input type="email" name="email" placeholder="Your email..." required="">
@@ -188,27 +188,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<div class="col-md-7 w3ls_footer_grid1_right">
 				<ul>
-					<li>
-						<a href="genres.html">Movies</a>
-					</li>
-					<li>
-						<a href="faq.html">FAQ</a>
-					</li>
-					<li>
-						<a href="horror.html">Action</a>
-					</li>
-					<li>
-						<a href="genres.html">Adventure</a>
-					</li>
-					<li>
-						<a href="comedy.html">Comedy</a>
-					</li>
-					<li>
-						<a href="icons.html">Icons</a>
-					</li>
-					<li>
-						<a href="contact.html">Contact Us</a>
-					</li>
+					<nav>
+						
+							<li class="#"><a href="/home">Начало</a></li>
+							
+
+							<li><a href="{{ url('/about') }}">За киното</a></li>
+					
+							<li><a href="{{ url('/contacts') }}">Контакти</a></li>
+							@if(empty($role))
+							<li><a href="{{ url('/login') }}">Вход</a></li>
+							<li><a href="{{ url('/register') }}">Регистрация</a></li>
+							@endif
+							@if($role == \Config::get('constants.ROLE_USER'))
+							<li><a href="{{ url('/profile/'.$u_id ) }}">Моят Профил</a></li>
+							<li><a href="{{url('/logout')}}">Излез</a></li>
+							@endif
+							@if($role == \Config::get('constants.ROLE_ADMIN'))
+ 							<li><a href="{{ url('/profile/'.$u_id ) }}">Моят Профил</a></li>
+							<li><a href="{{url('/admin')}}">Admin Panel</a></li>
+							
+							<li><a href="{{url('/logout')}}">Излез</a></li>
+							@endif
+							<!-- <li><a href="{{ url('/reservation') }}">Резервация</a></li> -->
+
+						</nav>
+					
 				</ul>
 			</div>
 			<div class="clearfix"> </div>

@@ -20,14 +20,14 @@ if($registered_now == 1){
 <div class="">
     <div class="card hovercard">
         <div class="card-background">
-            <img class="card-bkimg" alt="photo" src="{{url('/users/'.$user->photo)}}">
+            <img class="card-bkimg" alt="photo" src="{{url('/users/'.$user->name.'/'.$user->photo)}}">
             <!-- http://lorempixel.com/850/280/people/9/ -->
         </div>
         <div class="useravatar">
              @if(empty($user->photo))
            <p><br><a href="{{ url('/profile/'.$user->id.'/edit' ) }}"> <img src="../images/user.png" alt="profile_pic"></a></p>
           @else
-           <p><br> <a href="{{ url('/profile/'.$user->id.'/edit' ) }}"><img src="{{url('/users/'.$user->photo)}}" alt="profile_pic"></a></p>
+           <p><br> <a href="{{ url('/profile/'.$user->id.'/edit' ) }}"><img src="{{url('/users/'.$user->name.'/'.$user->photo)}}" alt="profile_pic"></a></p>
            @endif
            
         </div>
@@ -117,10 +117,10 @@ if($registered_now == 1){
           @if(empty($user->photo))
            <p>Снимка :<br> <img src="../images/user.png" width="200px" height="200px" alt="profile_pic"></p>
           @else
-           <p>Снимка :<br> <img src="{{url('/users/'.$user->photo)}}" width="200px" height="200px" alt="profile_pic"></p>
+           <p>Снимка :<br> <img src="{{url('/users/'.$user->name.'/'.$user->photo)}}" width="200px" height="200px" alt="profile_pic"></p>
            @endif
            <p>Потребителско име : {{$user->name}}</p>
-           <p>Парола : {{$user->password}}</p>
+          
            <p>Поща : {{$user->email}}</p>
            <a class="btn btn-primary" href="{{ url('/profile/'.$user->id.'/edit' ) }}">Промени</a>
          </center>

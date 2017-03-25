@@ -91,9 +91,16 @@ public function update(User $id, Request $request)
 			$files=Input::file('photo');
 			// var_dump($files);
 			$name=time()."_".$files->getClientOriginalName();
-			$img =$files->move(public_path().'/users',$name);
-			$id->photo = $name;
-          
+			$img =$files->move(public_path().'/users/'.$id->name,$name);
+			
+			if($id->photo)
+		{
+			$file_path = public_path().'/users/'.$id->name.'/'.$id->photo;
+			unlink($file_path);
+		}
+         $id->photo = $name; 
+		}else{
+			$id->photo = $id->photo;
 		}
         $id->name = $request->name;
         $id->password = Hash::make($request->password);

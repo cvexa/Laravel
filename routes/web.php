@@ -31,8 +31,11 @@ Route::put('/profile/{id}','ProfileController@update');
 
 
 
-Route::get('/single', function () {
-    return view('cinema.single');
+Route::get('/contacts', function () {
+    return view('cinema.contacts');
+});
+Route::get('/about', function () {
+    return view('cinema.about');
 });
 
 

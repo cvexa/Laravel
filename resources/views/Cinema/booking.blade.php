@@ -102,7 +102,12 @@ if (count($sold) > 1) {
 							'aaaaaaaaaa',
 							'aaaaaaaaaa',
 							'aaaaaaaaaa',
-							'aaaaaaaaaa'
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
 						],
 						naming : {
 							top : false,

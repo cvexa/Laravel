@@ -49,7 +49,7 @@ $date_movie_soon=strtotime($coming_soon);
 					<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
 						<!-- <a href="{{ url('/movies/'.$movie->id) }}" class="hvr-shutter-out-horizontal"> -->
 						<a href="#movie{{$movie->id}}" class="w3_play_icon">
-							<img src="{{ url('/posters/'.$movie->poster) }}" title="{{$movie->title}}" class="img-responsive" alt="poster" width="180px" height="280px" />
+							<img src="{{ url('/posters/'.$movie->id.'/'.$movie->poster) }}" title="{{$movie->title}}" class="img-responsive" alt="poster" width="180px" height="280px" />
 							<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 						</a>
 						<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -173,7 +173,7 @@ $date_movie_soon=strtotime($coming_soon);
                      
 
 						<td class="title_program">
-						<img onmouseover="javaimg()" class="hover_poster" src="{{url('/posters/'.$screening->cmMovie->poster)}}"  alt="movie poster" width="280" height="350px" /><br>{{$screening->cmMovie['title']}}</td>
+						<img onmouseover="javaimg()" class="hover_poster" src="{{url('/posters/'.$screening->cmMovie->id.'/'.$screening->cmMovie->poster)}}"  alt="movie poster" width="280" height="350px" /><br>{{$screening->cmMovie['title']}}</td>
 					<td>
 							<span class="trailer">
 						<center>

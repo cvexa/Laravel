@@ -28,7 +28,7 @@
 
     <div class="jumbotron text-center">
         <h2>{{ $movie->title }}</h2>
-         <p><strong>Постер :</strong><center><img src="{{ url('/posters/'.$movie->poster) }}" title="album-name" class="img-responsive" alt="poster" width="180px" height="280px" /></center></p>
+         <p><strong>Постер :</strong><center><img src="{{ url('/posters/'.$movie->id.'/'.$movie->poster) }}" title="album-name" class="img-responsive" alt="poster" width="180px" height="280px" /></center></p>
         <p><strong>Трейлър:</strong><br>
         <iframe width="560" height="315" src="{{ $movie->trailer }}" frameborder="0" allowfullscreen></iframe>
         </p>

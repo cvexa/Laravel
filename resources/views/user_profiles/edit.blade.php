@@ -36,23 +36,23 @@
       <label for="photo">Снимка </label>
         <center><p>
          @if(empty($user->photo))
-           <p></p>
+           <p><br> <img src="{{url('/images/user.png')}}" width="200px" height="200px" alt="profile_pic"></p>
           @else
-           <p><br> <img src="{{url('/users/'.$user->photo)}}" width="200px" height="200px" alt="profile_pic"></p>
+           <p><br> <img src="{{url('/users/'.$user->name.'/'.$user->photo)}}" width="200px" height="200px" alt="profile_pic"></p>
            @endif
         <input id="photo" type="file" name="photo">
         </p></center>
     </div>
 
-     <div class="form-group">
+    <!--  <div class="form-group">
       <label for="Title">Парола  </label>
         <p>
         <input id="title" type="text" class="form-control" name="password" value="{{ $user->password }}" placeholder="new password...">
         </p>
-    </div>
+    </div> -->
 
     <div class="form-group">
-      <label for="Title">Поща  </label>
+      <label for="Title">Поща: {{ $user->email }} </label>
         <p>
         <input id="title" type="text" class="form-control" name="email" value="{{ $user->email }}" placeholder="new email...">
         </p>

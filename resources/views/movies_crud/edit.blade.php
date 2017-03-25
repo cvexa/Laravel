@@ -41,9 +41,9 @@
 
   <div class="form-group">
       <label for="Poster">Постер </label>
-      <p><img src="{{ url('/posters/'.$movie->poster) }}" width="200px" height="200px" alt="edit image" /></p>
+      <p><img src="{{ url('/posters/'.$movie->id.'/'.$movie->poster) }}" width="200px" height="200px" alt="edit image" /></p>
         <p>
-        <input type="hidden" name="old_poster" value="{{ url('/posters/'.$movie->poster) }}">
+        <input type="hidden" name="old_poster" value="{{ url('/posters/'.$movie->id.'/'.$movie->poster) }}">
         <input id="poster" type="file" name="poster">
         </p>
     </div>
